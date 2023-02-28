@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -12,7 +12,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Input from '@mui/material/Input';
 
-export function ChocolateCard(chocolate) {
+// chocolateProps = { id: number, name: String, desc: String, image: String, price: number }
+export function ChocolateCard(chocolateProps) {
     const { addItemToCart } = useCart();
 
     const [quantity, setQuantity] = useState(1);
@@ -27,7 +28,7 @@ export function ChocolateCard(chocolate) {
 
     function handleAddToCart() {
         const toAdd = {
-            ...chocolate,
+            ...chocolateProps,
             quantity,
         };
 
@@ -37,27 +38,46 @@ export function ChocolateCard(chocolate) {
     }
 
     return (
-        <Container>
+        <Container
+            sx={{
+                alignItems: "center",
+                textAlign: "center",
+                justifyContent: "center",
+            }}
+        >
             <Card
-                sx={{
-                    height: '100%', 
+                sx={{ 
                     display: 'flex', 
                     flexDirection: 'column',
                 }}
             >
                 <CardMedia
                     component="img" 
-                    image={chocolate.img}
+                    image={chocolateProps.image}    
+                    alt="Error showing image"
+                    sx={{
+                        maxWidth:"100%",
+                        maxHeight:"300px",
+                        alignSelf: "center",
+                        objectFit: "cover",
+                    }}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {chocolate.name}
+                        {chocolateProps.name}
                     </Typography>
                     <Typography>
-                        {chocolate.desc}
+                        {`Rp ${chocolateProps.price}`}
+                    </Typography>
+                    <Typography>
+                        {chocolateProps.desc}
                     </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions
+                    sx={{
+                        alignSelf: "center",
+                    }}
+                >
                     <Button size="small" onClick={handleDecrease}>
                         <RemoveIcon />
                     </Button>
@@ -68,6 +88,9 @@ export function ChocolateCard(chocolate) {
                         }} 
                         readOnly='true' 
                         value={quantity} 
+                        sx={{
+                            width:"5px"
+                        }}
                     />
                     <Button size="small" onClick={handleIncrease}>
                         <AddIcon />
