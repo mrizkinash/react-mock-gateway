@@ -6,7 +6,7 @@ export const DECREASE_ITEM = '-';
 
 export const CartContext = createContext({});
 
-export function CartContextProvider(children) {
+export function CartContextProvider({ children }) {
     const [cartItems, setCartItems] = useState(() => {
         const cartCache = localStorage.getItem(STORAGE_KEY);
 
@@ -70,7 +70,7 @@ export function CartContextProvider(children) {
     }, [cartItems])
 
     return (
-        <CartContextProvider
+        <CartContext.Provider
             value={{
                 cartItems,
                 addItemToCart,
@@ -82,6 +82,6 @@ export function CartContextProvider(children) {
             }}
         >
             {children}
-        </CartContextProvider>
+        </CartContext.Provider>
     )
 }

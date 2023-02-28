@@ -1,22 +1,21 @@
-import { ChocolateList } from "./components/ChocolateList/ChocolateList";
-import Typography from "@mui/material/Typography";
+import { Router } from './Router';
+import { BrowserRouter } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CartContextProvider } from './contexts/CartContext';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const theme = createTheme();
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Typography
-        component="h3"
-        variant="h3"
-        align="center"
-        color="text.primary"
-        padding= "100px"
-      >
-        Welcome to our Chocolate Shop!
-      </Typography>
-      <ChocolateList />
+      <CssBaseline />
+
+      <BrowserRouter>
+        <CartContextProvider>
+          <Router />
+        </CartContextProvider>
+      </BrowserRouter>
     </ThemeProvider>
   ); 
 }

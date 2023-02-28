@@ -86,7 +86,7 @@ export function ChocolateCard(chocolateProps) {
                             inputMode: 'numeric', 
                             pattern: '[0-9]*' 
                         }} 
-                        readOnly='true' 
+                        readOnly={true}
                         value={quantity} 
                         sx={{
                             width:"5px"
