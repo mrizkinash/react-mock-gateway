@@ -1,7 +1,7 @@
 {
   "name": "react-gateway",
   "version": "0.1.0",
-  "homepage": "https://mrizkinash.github.io/react-mock-gateway",
+  "homepage": "https://mrizkinash.github.io/react-mock-gateway/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
