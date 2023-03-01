@@ -12,8 +12,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Input from '@mui/material/Input';
 
-// chocolateProps = { id: number, name: String, desc: String, image: String, price: number }
-export function ChocolateCard(chocolateProps) {
+// chocolate = { id: number, name: String, desc: String, image: String, price: number }
+export function ChocolateCard({ chocolate }) {
     const { addItemToCart } = useCart();
 
     const [quantity, setQuantity] = useState(1);
@@ -28,7 +28,7 @@ export function ChocolateCard(chocolateProps) {
 
     function handleAddToCart() {
         const toAdd = {
-            ...chocolateProps,
+            ...chocolate,
             quantity,
         };
 
@@ -40,37 +40,41 @@ export function ChocolateCard(chocolateProps) {
     return (
         <Container
             sx={{
+                height: "100%",
                 alignItems: "center",
                 textAlign: "center",
                 justifyContent: "center",
             }}
+            maxWidth={false}
         >
             <Card
                 sx={{ 
+                    height: "100%",
                     display: 'flex', 
                     flexDirection: 'column',
+                    justifyContent: 'space-between',
                 }}
             >
                 <CardMedia
                     component="img" 
-                    image={chocolateProps.image}    
-                    alt="Error showing image"
+                    image={chocolate.image}    
+                    alt={chocolate.name}
                     sx={{
                         maxWidth:"100%",
-                        maxHeight:"300px",
+                        height:"300px",
                         alignSelf: "center",
                         objectFit: "cover",
                     }}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {chocolateProps.name}
+                        {chocolate.name}
                     </Typography>
                     <Typography>
-                        {`Rp ${chocolateProps.price}`}
+                        {`Rp ${chocolate.price}`}
                     </Typography>
                     <Typography>
-                        {chocolateProps.desc}
+                        {chocolate.desc}
                     </Typography>
                 </CardContent>
                 <CardActions
@@ -89,7 +93,7 @@ export function ChocolateCard(chocolateProps) {
                         readOnly={true}
                         value={quantity} 
                         sx={{
-                            width:"5px"
+                            width:"10px"
                         }}
                     />
                     <Button size="small" onClick={handleIncrease}>

@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 
 export function DefaultLayout() {
     return (
-        <Container>
+        <Container maxWidth={false} disableGutters>
             <Header />
 
             <Outlet />

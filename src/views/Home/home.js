@@ -6,10 +6,10 @@ import { ChocolateList } from "../../components/ChocolateList/ChocolateList";
 
 export function Home() {
     return (
-        <Container>
+        <Container maxWidth={false}>
             <Box
                 sx={{
-                bgcolor: 'background.paper',
+                    bgcolor: 'background.paper',
                 }}
             >
                 <Typography

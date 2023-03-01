@@ -80,20 +80,23 @@ export const products = [
         image: "/chocoimg/sosis.jpg",
         price: 6000,
     },
+    {
+        id: 12,
+        name: "Roket Coklat",
+        desc: "Reach for the skies!",
+        image: "/chocoimg/chocorocket.jpg",
+        price: 17000,
+    },
 ]
 
 export function ChocolateList() {
     return (
-        <Container>
+        <Container maxWidth={false}>
             <Grid container spacing={3}>
                 {products.map((product) => (
-                    <Grid item key={product.id} xs={12} sm={6} md={4} alignSelf="center">
+                    <Grid item key={product.id} xs={12} sm={6} md={4}>
                         <ChocolateCard
-                            id={product.id}
-                            name={product.name}
-                            desc={product.desc}
-                            image={product.image}
-                            price={product.price}
+                            chocolate={product}
                         />
                     </Grid>
                 ))}
