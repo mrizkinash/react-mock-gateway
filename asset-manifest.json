@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-mock-gateway/static/css/main.e6c13ad2.css",
-    "main.js": "/react-mock-gateway/static/js/main.15578436.js",
+    "main.js": "/react-mock-gateway/static/js/main.47c4c56a.js",
     "index.html": "/react-mock-gateway/index.html",
     "main.e6c13ad2.css.map": "/react-mock-gateway/static/css/main.e6c13ad2.css.map",
-    "main.15578436.js.map": "/react-mock-gateway/static/js/main.15578436.js.map"
+    "main.47c4c56a.js.map": "/react-mock-gateway/static/js/main.47c4c56a.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.15578436.js"
+    "static/js/main.47c4c56a.js"
   ]
 }
